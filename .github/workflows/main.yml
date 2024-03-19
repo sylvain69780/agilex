@@ -18,7 +18,7 @@ jobs:
       run: dotnet publish Agilex/Agilex/Agilex.csproj -c Release -o release --nologo
       
     - name: Remplace href in base
-      run: sed -i 's|base href="/"|base href="/Agilex/"|g' release/wwwroot/index.html
+      run: sed -i 's|base href="/"|base href="/agilex/"|g' release/wwwroot/index.html
 
     - name: copy index.html to  404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html
