@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Agilex",
   "resources": {
-    "hash": "sha256-gm6yj8ogeSfiqUl5zQMYYGzuWHz2nEQar5c2ELJZjWo=",
+    "hash": "sha256-wCTRjE/O/QqScMtot5ghK2K3bClDAwp6bX71PQGWO7M=",
     "jsModuleNative": {
       "dotnet.native.8.0.3.wzxwl5s97r.js": "sha256-D4sYBYmDfH/YekgYRgX959/2RG6k28sJSHmcsn+iikk="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Agilex.wasm": "sha256-3zbMhznn/CWzewOy8FReQns7zoF7X5cZT3I834tK3Rc=",
+      "Agilex.wasm": "sha256-zYIBCvq8K3BmoxhHlswHt36hjh50JRNGGS4g0la0/74=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-pisTzSE1MHKvoWenBOqEd1Fi6tAug4HSS1LuLLKh7Ls=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-7KkqwwQtcN+NHevIKYhJ2gLZJa3f0aShCl2ldtegyXw=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-jrdFRjrF1131MZ3HGQVsI3dX8cLdZvPz85lsBltxjSM=",
