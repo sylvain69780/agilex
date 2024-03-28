@@ -9,16 +9,8 @@
       "url": "_framework\/dotnet.js"
     },
     {
-      "hash": "sha256-D4sYBYmDfH\/YekgYRgX959\/2RG6k28sJSHmcsn+iikk=",
-      "url": "_framework\/dotnet.native.8.0.3.wzxwl5s97r.js"
-    },
-    {
-      "hash": "sha256-eVeGwMx+BfzNeU727VmCADSEBzGFWGkvJAX0XZdSVkQ=",
-      "url": "_framework\/dotnet.native.wasm"
-    },
-    {
       "hash": "sha256-eQgtmRxLcbxYmADDa49CHs\/GuJ7nM6d\/UFWo4EVhuIw=",
-      "url": "_framework\/dotnet.runtime.8.0.3.r8ybjfe7e4.js"
+      "url": "_framework\/dotnet.runtime.8.0.3.b85ar3xvhg.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -33,11 +25,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-nGhGsoDql7LJhcsovPbJJTZVpyIiRVX4Qh5y92ehiNw=",
+      "hash": "sha256-\/uvfOkn2obAiW+1BIAg8sskRQ+CsuC3HVn6hD\/7Qay8=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-aGwTXqsutXskkS2RxtKyPGdtrf80E33cCG6E8LcAMTY=",
+      "hash": "sha256-dAs0k+HpBYaLN56cxJe2zXltqC3HCmtnmCyurVDu3\/Y=",
+      "url": "_framework\/dotnet.native.8.0.3.yx6tuy47tr.js"
+    },
+    {
+      "hash": "sha256-WczvftgHMyN1m\/qUrh3dUzat852+Azat8iyFWDBs6W0=",
+      "url": "_framework\/dotnet.native.wasm"
+    },
+    {
+      "hash": "sha256-oU\/rrM+xOCI7vjfUQab+YWmyeIeAlzhn5BQNnADRlp0=",
       "url": "_framework\/Agilex.wasm"
     },
     {
@@ -137,7 +137,7 @@
       "url": "_framework\/System.Net.Primitives.wasm"
     },
     {
-      "hash": "sha256-TX17Tu74trvfSajdlAayPOmgZsoxRedGE8wC8vl41ck=",
+      "hash": "sha256-QEcaGMBO1unGfqq2VPCxRjnFICPW1n86NYk01dLOtUM=",
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
@@ -153,7 +153,7 @@
       "url": "_framework\/System.Runtime.wasm"
     },
     {
-      "hash": "sha256-6Y6\/Faa3h5Vm0B7AAY9NZHdFTUWBX7c8paNgUxSC7wo=",
+      "hash": "sha256-rEHgO6aJwBo6L4QbvtQN9y+XYtMsWC5tHs4SU0vpglI=",
       "url": "_framework\/System.Text.Encodings.Web.wasm"
     },
     {
@@ -205,5 +205,5 @@
       "url": "sample-data\/weather.json"
     }
   ],
-  "version": "0+5+IRov"
+  "version": "WV2spS2m"
 };
