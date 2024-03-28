@@ -1,0 +1,54 @@
+﻿@page "/game"
+<h3>Jouer à AgilLex</h3>
+<svg width="400" height="400" style="stroke: black; stroke-width: 4px;">
+    @if (counter > 0)
+    {
+        <!-- Cadre -->
+        <line x1="50" y1="350" x2="200" y2="350" />
+        <line x1="50" y1="50" x2="50" y2="350" />
+        <line x1="50" y1="50" x2="200" y2="50" />
+        <line x1="200" y1="50" x2="200" y2="100" />
+    }
+
+    @if (counter > 1)
+    {
+        <!-- Corde -->
+        <line x1="200" y1="100" x2="200" y2="150" />
+    }
+    @if (counter > 2)
+    {
+        <!-- Tête -->
+        <circle cx="200" cy="180" r="30" fill="none" />
+    }
+    @if (counter > 3)
+    {
+
+        <!-- Corps -->
+        <line x1="200" y1="210" x2="200" y2="290" />
+    }
+    @if (counter > 4)
+    {
+
+        <!-- Bras -->
+        <line x1="200" y1="230" x2="150" y2="250" />
+        <line x1="200" y1="230" x2="250" y2="250" />
+    }
+    @if (counter > 5)
+    {
+
+        <!-- Jambes -->
+        <line x1="200" y1="290" x2="150" y2="330" />
+        <line x1="200" y1="290" x2="250" y2="330" />
+    }
+</svg>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int counter;
+
+    private void IncrementCount()
+    {
+        counter++;
+    }
+
+}
