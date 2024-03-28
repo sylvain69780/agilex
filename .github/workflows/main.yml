@@ -13,7 +13,9 @@ jobs:
       with:
           dotnet-version: 8.x
           include-prerelease: true
-
+    - name : Install WASM tools
+      run: dotnet workload install wasm-tools
+      
     - name: Publish .NET Core Project
       run: dotnet publish Agilex/Agilex/Agilex.csproj -c Release -o release --nologo
       
