@@ -5,6 +5,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <WasmEnableSIMD>false</WasmEnableSIMD>
+    <WasmEnableExceptionHandling>false</WasmEnableExceptionHandling>
+    <WasmBuildNative>true</WasmBuildNative>
   </PropertyGroup>
 
   <ItemGroup>
