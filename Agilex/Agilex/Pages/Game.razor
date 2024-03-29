@@ -2,7 +2,7 @@
 <h3>Jouer à AgilLex</h3>
 <div class="mb-3">
     <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
-    <input type="text" class="form-control" id="textInput" @bind="textInput" @bind:event="oninput" />
+    <input type="text" class="form-control" id="textInput" @bind="textInput" @bind:event="oninput" maxlength="7"/>
 </div>
 <div>
     <Hangman Counter="@Responses"/>
