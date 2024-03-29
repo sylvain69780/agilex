@@ -1,16 +1,16 @@
 ﻿@page "/game"
+@inject AppSettings AppSettings
 <h3>Jouer à AgilLex</h3>
 <div>
     <h1>
-        La @maskedWord
-        avec les clients
+        @phraseBegin @maskedWordString @phraseEnd
     </h1>
 </div>
 <div>
     <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
-    <input type="text" class="form-control" id="textInput" @oninput="HandleInput" maxlength="10" />
+    <input type="text" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
 </div>
-@if (!maskedWord.Contains('?'))
+@if (!maskedWord!.Contains('?'))
 {
     <h1>
         Gagné !
@@ -21,25 +21,67 @@
 </div>
 
 @code {
+    private int stage = 0;
+
     private int counter = 0;
 
-    private const string secretWord = "collaboration";
+    private string? secretWord;
+    private string? phraseBegin;
+    private string? phraseEnd;
+    private char[]? maskedWord;
+    private string maskedWordString => new string(maskedWord);
+    private string textInput = string.Empty;
+
+    private void ResetGame()
+    {
+        counter = 0;
+        textInput = string.Empty; // not working in oninput :-()
+        var config = AppSettings.AgileValues![stage];
+        secretWord = config.WordToGuess!;
+        maskedWord = new char[secretWord.Length];
+        Array.Fill(maskedWord, '?');
+        phraseBegin = config.Phrase!.Substring(0, config.Phrase.IndexOf(secretWord));
+        phraseEnd = config.Phrase!.Substring(config.Phrase.IndexOf(secretWord)+secretWord.Length);
+    }
+
+    protected override void OnInitialized()
+    {
+        ResetGame();
+        base.OnInitialized();
+    }
+
+    private void LevelUp()
+    {
+        stage++;
+        if (stage >= AppSettings.AgileValues!.Length)
+            stage = 0;
+    }
 
     private void HandleInput(ChangeEventArgs e)
     {
+        if (!maskedWord!.Contains('?') || counter > 10)
+        {
+            LevelUp();
+            ResetGame();
+        }
         var s = (string?)e.Value;
         if (string.IsNullOrEmpty(s))
             return;
         var c = s[^1];
-        if (maskedWord.Contains(c, StringComparison.OrdinalIgnoreCase) || !secretWord.Contains(c, StringComparison.OrdinalIgnoreCase))
+        var l = secretWord!.Length;
+        var found = false;
+        var secret = secretWord.Replace('é', 'e');
+        for (var i = 0; i < l; i++)
+        {
+            if ( maskedWord![i] == '?' && c == secret[i])
+            {
+                found = true;
+                maskedWord[i] = c;
+            }
+        }
+        if (!found)
             counter++;
-        var replace = new char[secretWord.Length];
-        for (var i = 0; i < secretWord.Length; i++)
-            replace[i] = s.Contains(secretWord[i]) ? secretWord[i] : '?';
-        maskedWord = new string(replace);
-        StateHasChanged();
     }
 
-    private string maskedWord = new string('?', secretWord.Length);
 
 }
