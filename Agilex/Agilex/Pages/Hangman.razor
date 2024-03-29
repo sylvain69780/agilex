@@ -1,4 +1,4 @@
-﻿@if (Counter > 6) {
+﻿@if (Counter > 9) {
     <h1>Perdu !</h1>
 }
 
@@ -47,7 +47,7 @@
     [Parameter]
     public int Counter { get; set; }
 
-    private string Color => Counter > 6 ? "red" : "black";
+    private string Color => Counter > 9 ? "red" : "black";
 
     private string Style => $"stroke: {Color}; stroke-width: 4px;";
 }

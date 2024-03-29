@@ -1,23 +1,41 @@
 ﻿@page "/game"
 <h3>Jouer à AgilLex</h3>
-<div class="mb-3">
-    <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
-    <input type="text" class="form-control" id="textInput" @bind="textInput" @bind:event="oninput" maxlength="7"/>
+<div>
+    La @maskedWord
+    avec les clients
 </div>
 <div>
-    <Hangman Counter="@Responses"/>
+    <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
+    <input type="text" class="form-control" id="textInput" @oninput="HandleInput" maxlength="10" />
+</div>
+@if (!maskedWord.Contains('?'))
+{
+    <h1>
+        Gagné !
+    </h1>
+}
+<div>
+    <Hangman Counter="@counter" />
 </div>
 
 @code {
-    private int counter;
+    private int counter = 0;
 
-    private int Responses => textInput.Length;
+    private const string secretWord = "collaboration";
 
-    private void IncrementCount()
+    private void HandleInput(ChangeEventArgs e)
     {
-        counter++;
+        var s = (string?)e.Value;
+        var c = s![^1];
+        if (maskedWord.Contains(c, StringComparison.OrdinalIgnoreCase) || !secretWord.Contains(c, StringComparison.OrdinalIgnoreCase))
+            counter++;
+        var replace = new char[secretWord.Length];
+        for (var i = 0; i < secretWord.Length; i++)
+            replace[i] = s.Contains(secretWord[i]) ? secretWord[i] : '?';
+        maskedWord = new string(replace);
+        StateHasChanged();
     }
 
-    private string textInput = string.Empty;
+    private string maskedWord = new string('?', secretWord.Length);
 
 }
