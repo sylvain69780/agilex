@@ -10,8 +10,12 @@ h1:focus {
 h3 {
     background-color:#00B398;
     color:white;
+    text-transform:uppercase;
+    font-size : 2em;
+    padding : 10px 10px 10px 10px;
+    
 }
-
+/* fin ajout */
 a, .btn-link {
     color: #0071c1;
 }
