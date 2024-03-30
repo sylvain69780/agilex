@@ -14,8 +14,8 @@ h3 {
     font-size : 2em;
     padding : 30px 30px 30px 30px;
     /*margin : -20px 20px 20px 20px;*/
-    border: 1px dotted #E35205;
-    border-radius: 10% 10% 10% 10%; 
+    border: 3px dotted #E35205;
+    /*border-radius: 10% 10% 10% 10%;*/ 
     /*opacity:50%;*/
 }
 
