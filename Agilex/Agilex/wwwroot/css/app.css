@@ -13,7 +13,7 @@ h3 {
     text-transform:uppercase;
     font-size : 2em;
     padding : 30px 30px 30px 30px;
-    margin : -20px 20px 20px 20px;
+    /*margin : -20px 20px 20px 20px;*/
     border-radius: 10% 10% 10% 10%; 
     opacity:50%;
 }
