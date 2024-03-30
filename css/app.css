@@ -22,13 +22,15 @@ h3 {
 h4{
     font-size : 1em;
     color: #00B398;
+    margin-bottom:20px;
+    margin-top:20px;
 }
 
 q {
-    margin:20px;
-    padding : 20px 20px 20px 20px;
-    padding:10px 10px 10px 10px;
-    background-color : #00B398 50%;
+    margin-left:20px;
+    padding : 10px 10px 10px 10px;
+    background-color : #00B398;
+    color: white;
     font-size : 1em;
 }
 
