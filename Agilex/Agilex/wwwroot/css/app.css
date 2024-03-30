@@ -8,7 +8,8 @@ h1:focus {
 
 /* Aurélien - 30/03/2024 */
 h3 {
-color:00B398;
+    background-color:#00B398;
+    color:white;
 }
 
 a, .btn-link {
