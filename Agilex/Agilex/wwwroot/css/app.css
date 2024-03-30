@@ -6,6 +6,11 @@ h1:focus {
     outline: none;
 }
 
+/* Aurélien - 30/03/2024 */
+h3 {
+color:00B398;
+}
+
 a, .btn-link {
     color: #0071c1;
 }
