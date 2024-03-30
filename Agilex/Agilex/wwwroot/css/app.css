@@ -23,7 +23,16 @@ h4{
     font-size : 1em;
     color: #00B398;
 }
+
+q {
+    margin-left:20px;
+    padding:10px 10px 10px 10px;
+    background-color : #00B398 50%;
+    font-size : 1em;
+}
+
 /* fin ajout */
+
 a, .btn-link {
     color: #0071c1;
 }
