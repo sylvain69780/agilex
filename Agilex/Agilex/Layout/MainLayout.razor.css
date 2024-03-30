@@ -12,7 +12,7 @@ main {
     /* AURELIEN 30/03/2024
     
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);*/
-    background-image: linear-gradient(180deg, rgb(0, 169, 224) 0%, #00B398 70%);
+    background-image: linear-gradient(180deg, #00B398 100%, #00B398 20%);
 }
 
 .top-row {
