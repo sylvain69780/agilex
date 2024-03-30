@@ -2,9 +2,20 @@
 @inject AppSettings AppSettings
 <h3>Jouer à AgilLex</h3>
 <div>
+    <h3>Valeur Agile #@userStage</h3>
     <h1>
         @phraseBegin @maskedWordString @phraseEnd
     </h1>
+</div>
+<div>
+    <h3>
+        Plutôt que
+    </h3>
+</div>
+<div>
+    <h2>
+        @insteadOf
+    </h2>
 </div>
 <div>
     <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
@@ -16,32 +27,45 @@
         Gagné !
     </h1>
 }
+@if (counter > 9)
+{
+    <h1>
+        Perdu !
+    </h1>
+}
+@if (counter > 9 || !maskedWord!.Contains('?'))
+{
+    <button class="btn btn-primary" @onclick="() => {ResetGame(); LevelUp();}">Continuer</button>
+} else
+{
+    <div>@(10-counter) tentatives restantes.</div>
+}
 <div>
     <Hangman Counter="@counter" />
 </div>
 
 @code {
-    private int stage = 0;
-
-    private int counter = 0;
-
-    private string? secretWord;
-    private string? phraseBegin;
-    private string? phraseEnd;
-    private char[]? maskedWord;
+    private static int stage = 0;
+    private int userStage => stage + 1;
+    private static int counter = 0;
+    private static string? secretWord;
+    private static string? phraseBegin;
+    private static string? phraseEnd;
+    private static char[]? maskedWord;
     private string maskedWordString => new string(maskedWord);
+    private string insteadOf => AppSettings.AgileValues![stage].InsteadOf!;
     private string textInput = string.Empty;
 
     private void ResetGame()
     {
         counter = 0;
-        textInput = string.Empty; // not working in oninput :-()
+        textInput = string.Empty;
         var config = AppSettings.AgileValues![stage];
         secretWord = config.WordToGuess!;
         maskedWord = new char[secretWord.Length];
         Array.Fill(maskedWord, '?');
         phraseBegin = config.Phrase!.Substring(0, config.Phrase.IndexOf(secretWord));
-        phraseEnd = config.Phrase!.Substring(config.Phrase.IndexOf(secretWord)+secretWord.Length);
+        phraseEnd = config.Phrase!.Substring(config.Phrase.IndexOf(secretWord) + secretWord.Length);
     }
 
     protected override void OnInitialized()
@@ -59,24 +83,21 @@
 
     private void HandleInput(ChangeEventArgs e)
     {
-        if (!maskedWord!.Contains('?') || counter > 10)
-        {
-            LevelUp();
-            ResetGame();
-        }
         var s = (string?)e.Value;
         if (string.IsNullOrEmpty(s))
             return;
         var c = s[^1];
+        if (c == 'é')
+            c = 'e';
         var l = secretWord!.Length;
         var found = false;
         var secret = secretWord.Replace('é', 'e');
         for (var i = 0; i < l; i++)
         {
-            if ( maskedWord![i] == '?' && c == secret[i])
+            if (maskedWord![i] == '?' && c == secret[i])
             {
                 found = true;
-                maskedWord[i] = c;
+                maskedWord[i] = secretWord[i];
             }
         }
         if (!found)
