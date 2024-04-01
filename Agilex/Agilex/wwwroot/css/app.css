@@ -35,10 +35,10 @@ q {
 }
 
 #game{
-    margin-top : 20px;
+    margin-top : 40px;
     padding: 20px 20px 20px 20px;
-    border : 1px dotted black;
-    background-color : 968C83;
+    border : 3px dotted black;
+    background-color : #F7F7F7;
     width:50%;
 }
 
