@@ -34,6 +34,15 @@ q {
     font-size : 1em;
 }
 
+.game{
+    margin-top : 20px;
+    border : 1px dotted black;
+}
+
+h4 #resultat{
+}
+
+
 /* fin ajout */
 
 a, .btn-link {
