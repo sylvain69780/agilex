@@ -36,9 +36,10 @@ q {
 
 #game{
     margin-top : 20px;
+    padding: 20px 20px 20px 20px;
     border : 1px dotted black;
-    background-color : #00B398 0.5;
-    width:25%;
+    background-color : #00B398 50%;
+    width:50%;
 }
 
 h3 .resultat{
