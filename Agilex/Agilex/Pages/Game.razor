@@ -17,21 +17,21 @@
         @insteadOf
     </q>
 </div>
-<div>
+<div id="game">
     <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
     <input type="text" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
 </div>
 @if (!maskedWord!.Contains('?'))
 {
-    <h1>
+    <h4 class="resultat">
         Gagné !
-    </h1>
+    </h4>
 }
 @if (counter > 9)
 {
-    <h1>
+    <h4 class="resultat">
         Perdu !
-    </h1>
+    </h4>
 }
 @if (counter > 9 || !maskedWord!.Contains('?'))
 {
