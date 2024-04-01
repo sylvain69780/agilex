@@ -34,14 +34,14 @@ q {
     font-size : 1em;
 }
 
-.game{
+#game{
     margin-top : 20px;
     border : 1px dotted black;
     background-color : #00B398 0.5;
     width:25%;
 }
 
-h4 #resultat{
+h3 .resultat{
     background-color:#E35205;
     color: white;
     padding:10px 10px 10px 10px;
