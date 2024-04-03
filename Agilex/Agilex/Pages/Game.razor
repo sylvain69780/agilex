@@ -1,60 +1,47 @@
 ﻿@page "/game"
 @inject AppSettings AppSettings
-<h3>Jouer à AgilLex</h3>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div>
-                <h3>Valeur Agile #@userStage</h3>
-                <h1>
-                    @phraseBegin @maskedWordString @phraseEnd
-                </h1>
-            </div>
-            <div>
-                <h3>
-                    Plutôt que
-                </h3>
-            </div>
-            <div>
-                <h2>
-                    @insteadOf
-                </h2>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm">
-            <div>
-                <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
-                <input type="text" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
-            </div>
-            @if (!maskedWord!.Contains('?'))
-            {
-                <h1>
-                    Gagné !
-                </h1>
-            }
-            @if (counter > 9)
-            {
-                <h1>
-                    Perdu !
-                </h1>
-            }
-            @if (counter > 9 || !maskedWord!.Contains('?'))
-            {
-                <button class="btn btn-primary" @onclick="() => {ResetGame(); LevelUp();}">Continuer</button>
-            }
-            else
-            {
-                <div>@(10 - counter) tentatives restantes.</div>
-            }
-        </div>
-        <div class="col-sm">
-            <div>
-                <Hangman Counter="@counter" />
-            </div>
-        </div>
-    </div>
+<h3>Jouer à AgiLex</h3> 
+<div>
+    <h4>Valeur Agile #@userStage</h4>
+    <q>
+        @phraseBegin @maskedWordString @phraseEnd
+    </q>
+</div>
+<div>
+    <h4>
+        Plutôt que
+    </h4>
+</div>
+<div>
+    <q>
+        @insteadOf
+    </q>
+</div>
+<div id="game">
+    <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
+    <input type="text" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
+</div>
+@if (!maskedWord!.Contains('?'))
+{
+    <h4 class="resultat">
+        Gagné !
+    </h4>
+}
+@if (counter > 9)
+{
+    <h4 class="resultat">
+        Perdu !
+    </h4>
+}
+@if (counter > 9 || !maskedWord!.Contains('?'))
+{
+    <button class="btn btn-primary" @onclick="() => {ResetGame(); LevelUp();}">Continuer</button>
+} else
+{
+    <div>@(10-counter) tentatives restantes.</div>
+}
+<div>
+    <Hangman Counter="@counter" />
 </div>
 
 @code {
