@@ -40,7 +40,15 @@
         }
         @if (stageCompleted)
         {
-            <button class="btn btn-primary" @onclick="LevelUp">Continuer</button>
+            if (stage < AppSettings.AgileValues!.Length - 1)
+            {
+                <button class="btn btn-primary" @onclick="LevelUp">Continuer</button>
+            } else
+            {
+                <p>Vous avez terminé le jeu !</p>
+                <p>Vous avez fait @errors erreur(s) pendant le jeu.</p>
+                <button class="btn btn-primary" @onclick="Restart">Rejouter</button>
+            }
         }
         else
         {
@@ -65,6 +73,7 @@
     private string textInput = string.Empty;
     private bool stageCompleted => counter > 9 || !maskedWord!.Contains('_');
     private string agileValue => AppSettings.AgileValues![stage].Value!;
+    private int errors = 0;
 
     private void ResetGame()
     {
@@ -87,8 +96,13 @@
     private void LevelUp()
     {
         stage++;
-        if (stage >= AppSettings.AgileValues!.Length)
-            stage = 0;
+        ResetGame();
+    }
+
+    private void Restart()
+    {
+        stage = 0;
+        errors = 0;
         ResetGame();
     }
 
@@ -112,7 +126,10 @@
             }
         }
         if (!found)
+        {
+            errors++;
             counter++;
+        }
     }
 
 
