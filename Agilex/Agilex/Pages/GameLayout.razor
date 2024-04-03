@@ -1,0 +1,17 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            @Controls
+        </div>
+        <div class="col-lg-6">
+            @Visualization
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment Controls { get; set; }
+    [Parameter]
+    public RenderFragment Visualization { get; set; }
+}

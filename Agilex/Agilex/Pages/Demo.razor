@@ -77,7 +77,7 @@
         var s = (string?)e.Value;
         if (string.IsNullOrEmpty(s))
             return;
-        var c = s[^1];
+        var c = s.ToLower()[^1];
         if (c == 'é')
             c = 'e';
         var l = secretWord!.Length;

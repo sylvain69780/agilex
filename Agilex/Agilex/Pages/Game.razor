@@ -1,57 +1,56 @@
 ﻿@page "/game"
 @inject AppSettings AppSettings
-<h3>Jouer à AgiLex</h3> 
-<div class="container">
-    <div class="row">
-        <div class="col-8">
-            <div>
-                <h4>Valeur Agile #@userStage</h4>
-                <q>
-                    @phraseBegin <MaskedWord Word="@maskedWordString" /> @phraseEnd
-                </q>
-            </div>
-            <div>
-                <h4>
-                    Plutôt que
-                </h4>
-            </div>
-            <div>
-                <q>
-                    @insteadOf
-                </q>
-            </div>
+<h3>Jouer à AgiLex</h3>
+<GameLayout>
+    <Controls>
+        <div>
+            <h4>Valeur Agile à trouver : @agileValue</h4>
+            <q>
+                @phraseBegin <MaskedWord Word="@maskedWordString" /> @phraseEnd
+            </q>
+        </div>
+        <div>
+            <h4>
+                Plutôt que
+            </h4>
+        </div>
+        <div>
+            <q>
+                @insteadOf
+            </q>
+        </div>
+        @if (!stageCompleted)
+        {
             <div id="game">
                 <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
-                <input type="text" autocomplete="off" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
-            </div>
-            @if (!maskedWord!.Contains('_'))
-            {
-                <h4 class="resultat">
-                    Gagné !
-                </h4>
-            }
-            @if (counter > 9)
-            {
-                <h4 class="resultat">
-                    Perdu !
-                </h4>
-            }
-            @if (counter > 9 || !maskedWord!.Contains('_'))
-            {
-                <button class="btn btn-primary" @onclick="() => {ResetGame(); LevelUp();}">Continuer</button>
-            }
-            else
-            {
-                <div>@(10 - counter) tentatives restantes.</div>
-            }
+            <input type="text" autocomplete="off" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
         </div>
-        <div class="col-4">
-            <div>
-                <Hangman Counter="@counter" />
-            </div>
-        </div>
-    </div>
-</div>
+        }
+        @if (!maskedWord!.Contains('_'))
+        {
+            <h4 class="resultat">
+                Gagné !
+            </h4>
+        }
+        @if (counter > 9)
+        {
+            <h4 class="resultat">
+                Perdu !
+            </h4>
+        }
+        @if (stageCompleted)
+        {
+            <button class="btn btn-primary" @onclick="LevelUp">Continuer</button>
+        }
+        else
+        {
+            <div>@(10 - counter) tentatives restantes.</div>
+        }
+    </Controls>
+    <Visualization>
+        <Hangman Counter="@counter" />
+    </Visualization>
+</GameLayout>
 
 @code {
     private static int stage = 0;
@@ -64,6 +63,8 @@
     private string maskedWordString => new string(maskedWord);
     private string insteadOf => AppSettings.AgileValues![stage].InsteadOf!;
     private string textInput = string.Empty;
+    private bool stageCompleted => counter > 9 || !maskedWord!.Contains('_');
+    private string agileValue => AppSettings.AgileValues![stage].Value!;
 
     private void ResetGame()
     {
@@ -88,6 +89,7 @@
         stage++;
         if (stage >= AppSettings.AgileValues!.Length)
             stage = 0;
+        ResetGame();
     }
 
     private void HandleInput(ChangeEventArgs e)
