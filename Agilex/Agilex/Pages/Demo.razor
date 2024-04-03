@@ -1,23 +1,12 @@
-﻿@page "/game"
-@inject AppSettings AppSettings
-<h3>Jouer à AgiLex</h3> 
+﻿@page "/demo"
+<h3>Demo du jeu AgiLex</h3> 
 <div class="container">
     <div class="row">
         <div class="col">
             <div>
-                <h4>Valeur Agile #@userStage</h4>
+                <h4>Dans cette demo vous essayez de deviner le mot DEMO</h4>
                 <q>
                     @phraseBegin @maskedWordString @phraseEnd
-                </q>
-            </div>
-            <div>
-                <h4>
-                    Plutôt que
-                </h4>
-            </div>
-            <div>
-                <q>
-                    @insteadOf
                 </q>
             </div>
         </div>
@@ -42,7 +31,7 @@
             }
             @if (counter > 9 || !maskedWord!.Contains('?'))
             {
-                <button class="btn btn-primary" @onclick="() => {ResetGame(); LevelUp();}">Continuer</button>
+                <button class="btn btn-primary" @onclick="ResetGame">Refaire la DEMO</button>
             }
             else
             {
@@ -58,40 +47,29 @@
 </div>
 
 @code {
-    private static int stage = 0;
-    private int userStage => stage + 1;
     private static int counter = 0;
     private static string? secretWord;
     private static string? phraseBegin;
     private static string? phraseEnd;
     private static char[]? maskedWord;
     private string maskedWordString => new string(maskedWord);
-    private string insteadOf => AppSettings.AgileValues![stage].InsteadOf!;
     private string textInput = string.Empty;
 
     private void ResetGame()
     {
         counter = 0;
         textInput = string.Empty;
-        var config = AppSettings.AgileValues![stage];
-        secretWord = config.WordToGuess!;
+        secretWord = "demo";
         maskedWord = new char[secretWord.Length];
         Array.Fill(maskedWord, '?');
-        phraseBegin = config.Phrase!.Substring(0, config.Phrase.IndexOf(secretWord));
-        phraseEnd = config.Phrase!.Substring(config.Phrase.IndexOf(secretWord) + secretWord.Length);
+        phraseBegin = "ceci est une ";
+        phraseEnd = " de Agilex";
     }
 
     protected override void OnInitialized()
     {
         ResetGame();
         base.OnInitialized();
-    }
-
-    private void LevelUp()
-    {
-        stage++;
-        if (stage >= AppSettings.AgileValues!.Length)
-            stage = 0;
     }
 
     private void HandleInput(ChangeEventArgs e)
