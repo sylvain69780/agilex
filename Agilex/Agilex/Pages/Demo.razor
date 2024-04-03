@@ -17,7 +17,7 @@
                 <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
                 <input type="text" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
             </div>
-            @if (!maskedWord!.Contains('?'))
+            @if (!maskedWord!.Contains('_'))
             {
                 <h4 class="resultat">
                     Gagné !
@@ -29,7 +29,7 @@
                     Perdu !
                 </h4>
             }
-            @if (counter > 9 || !maskedWord!.Contains('?'))
+            @if (counter > 9 || !maskedWord!.Contains('_'))
             {
                 <button class="btn btn-primary" @onclick="ResetGame">Refaire la DEMO</button>
             }
@@ -61,7 +61,7 @@
         textInput = string.Empty;
         secretWord = "demo";
         maskedWord = new char[secretWord.Length];
-        Array.Fill(maskedWord, '?');
+        Array.Fill(maskedWord, '_');
         phraseBegin = "ceci est une ";
         phraseEnd = " de Agilex";
     }
@@ -85,7 +85,7 @@
         var secret = secretWord.Replace('é', 'e');
         for (var i = 0; i < l; i++)
         {
-            if (maskedWord![i] == '?' && c == secret[i])
+            if (maskedWord![i] == '_' && c == secret[i])
             {
                 found = true;
                 maskedWord[i] = secretWord[i];

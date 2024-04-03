@@ -6,7 +6,7 @@ h1:focus {
     outline: none;
 }
 
-/* Aurélien - 30/03/2024 
+/* Aurélien - 30/03/2024 */
 h3 {
     color: #E35205;
     text-transform:uppercase;
@@ -46,7 +46,7 @@ q {
 }
 
 
- fin ajout */
+ /* fin ajout */
 
 a, .btn-link {
     color: #0071c1;

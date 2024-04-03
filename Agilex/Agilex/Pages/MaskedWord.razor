@@ -1,0 +1,11 @@
+﻿<span class="maskedWord">
+@foreach(var c in Word!)
+{
+    var cls = c == '_' ? "nonTrouve" : "trouve";
+    <span class="@cls">@c</span>
+}
+</span>
+@code {
+    [Parameter]
+    public string? Word { get; set; }
+}
