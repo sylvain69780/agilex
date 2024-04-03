@@ -3,7 +3,7 @@
 <h3>Jouer à AgiLex</h3> 
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-8">
             <div>
                 <h4>Valeur Agile #@userStage</h4>
                 <q>
@@ -20,13 +20,9 @@
                     @insteadOf
                 </q>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-8">
             <div id="game">
                 <label for="textInput" class="form-label">Tapez vos lettres ici.</label>
-                <input type="text" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
+                <input type="text" autocomplete="off" class="form-control" id="textInput" @bind="textInput" @oninput="HandleInput" />
             </div>
             @if (!maskedWord!.Contains('?'))
             {
@@ -99,7 +95,7 @@
         var s = (string?)e.Value;
         if (string.IsNullOrEmpty(s))
             return;
-        var c = s[^1];
+        var c = s.ToLower()[^1];
         if (c == 'é')
             c = 'e';
         var l = secretWord!.Length;
