@@ -49,12 +49,14 @@ q {
     background-color:#EFEFEF;
     color:white;
     font-weight:bold;
+    margin-left: 2px;
 }
     
 .trouve{
-    background-color:#EFEFEF;
-    color:#968C83;
+    /*background-color:#EFEFEF;*/
+    color:#E35205;
     font-weight:bold;
+    margin-left: 2px;
 }
 
  /* fin ajout */
