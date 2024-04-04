@@ -47,9 +47,10 @@ q {
 
 span.nonTrouve{
     background-color:#EFEFEF;
-    color:#F2A900;
+    color:#EFEFEF;
     font-weight:bold;
     margin-left: 2px;
+    margin-right : 2px;
 }
     
 span.trouve{
@@ -57,6 +58,7 @@ span.trouve{
     color:#F2A900;
     font-weight:bold;
     margin-left: 2px;
+    margin-right : 2px;
 }
 
  /* fin ajout */
