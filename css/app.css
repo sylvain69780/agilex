@@ -46,13 +46,13 @@ q {
 }
 
 .Nontrouve{
-    background-color:#968C83;
+    background-color:#EFEFEF;
     color:white;
     font-weight:bold;
 }
     
 .trouve{
-    /*background-color:#E35205;*/
+    background-color:#EFEFEF;
     color:#968C83;
     font-weight:bold;
 }
