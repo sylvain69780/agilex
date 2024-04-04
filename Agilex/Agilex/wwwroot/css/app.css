@@ -64,9 +64,16 @@ a, .btn-link {
 }
 
 .btn-primary {
+    /* Aurélien 04/04/2024
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
+    */ 
+    /* Aurélien 04/04/2024 */
+    color: #fff;
+    background-color: #AD1AAC;
+    border-color: #AD1AAC;
+
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
