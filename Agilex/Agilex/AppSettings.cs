@@ -12,4 +12,6 @@
         public AgileValue[]? AgileValues { get; set; }
     }
 
+    public class AppSettingsDemo : AppSettings;
+
 }
