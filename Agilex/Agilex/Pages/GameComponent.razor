@@ -51,13 +51,13 @@
             else
             {
                 <p>Vous avez terminé le jeu !</p>
-                <p>Vous avez fait <span style="color:#E35205;">@errors</span> erreur(s) pendant le jeu.</p>
+                <p>Vous avez fait <span style="color:#E35205;font-weight:bold;">@errors</span> erreur(s) pendant le jeu.</p>
                 <button class="btn btn-primary" @onclick="Restart">Rejouter</button>
             }
         }
         else
         {
-            <div><span style="color:#E35205;">@(10 - counter)</span> tentatives restantes.</div>
+            <div><span style="color:#E35205;font-weight:bold">@(10 - counter)</span> tentatives restantes.</div>
         }
     </Controls>
     <Visualization>
