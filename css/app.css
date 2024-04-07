@@ -36,10 +36,10 @@ q {
 #game{
     margin-top : 40px;
     padding: 20px 20px 20px 20px;
-    border : 3px dotted black;
+    border : 2px dotted #968C83;
     border-radius : 4px;
     background-color : #F7F7F7;
-    width:50%;
+    /*width:50%;*/
 }
 
 .resultatGagne{
