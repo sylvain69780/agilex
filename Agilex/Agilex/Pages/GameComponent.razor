@@ -25,12 +25,19 @@
         }
         @if (!maskedWord!.Contains('_'))
         {
+             <div class="end-game">
+                <h4>Fin de partie!</h4>
+              </div>
             <h4 class="resultat">
                 Gagné !
             </h4>
         }
         @if (counter > 9)
         {
+            <div class="end-game">
+                <h4>Fin de partie!</h4>
+             </div>
+
             <h4 class="resultat">
                 Perdu !
             </h4>
