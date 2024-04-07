@@ -69,8 +69,8 @@ span.trouve{
 
 /* Appliquer l'animation à l'élément */
 .end-game {
-  text-align: center;
-  animation: zoomOut 2s ease forwards;
+  text-align: left;
+  animation: zoomOut 4s ease forwards;
 }
 
  /* fin ajout */
