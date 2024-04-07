@@ -42,7 +42,16 @@ q {
     width:50%;
 }
 
-.resultat{
+.resultatGagne{
+    background-color:#F2A900;
+    background: linear-gradient(90deg, rgba(242,169,80,1) 0%, rgba(255,255,255,1) 100%);
+    border-radius : 4px;
+    color: white;
+    padding:10px 10px 10px 10px;
+    font-weight:bold;
+}
+    
+.resultatPerdu{
     background-color:#E35205;
     background: linear-gradient(90deg, rgba(227,82,5,1) 0%, rgba(255,255,255,1) 100%);
     border-radius : 4px;
