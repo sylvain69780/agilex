@@ -37,7 +37,7 @@
         }
         @if (stageCompleted)
         {
-            if (stage < AppSettings.AgileValues!.Length - 1)
+            if (stage < GameConfiguration!.AgileValues!.Length - 1)
             {
                 <button class="btn btn-primary" @onclick="LevelUp">Continuer</button>
             }
@@ -60,7 +60,7 @@
 
 @code {
     [Parameter]
-    public AppSettings? AppSettings { get; set; }
+    public GameConfiguration? GameConfiguration { get; set; }
 
     private static int stage = 0;
     private int userStage => stage + 1;
@@ -70,17 +70,17 @@
     private static string? phraseEnd;
     private static char[]? maskedWord;
     private string maskedWordString => new string(maskedWord);
-    private string insteadOf => AppSettings!.AgileValues![stage].InsteadOf!;
+    private string insteadOf => GameConfiguration!.AgileValues![stage].InsteadOf!;
     private string textInput = string.Empty;
     private bool stageCompleted => counter > 9 || !maskedWord!.Contains('_');
-    private string agileValue => AppSettings!.AgileValues![stage].Value!;
+    private string agileValue => GameConfiguration!.AgileValues![stage].Value!;
     private int errors = 0;
 
     private void ResetGame()
     {
         counter = 0;
         textInput = string.Empty;
-        var config = AppSettings.AgileValues![stage];
+        var config = GameConfiguration!.AgileValues![stage];
         secretWord = config.WordToGuess!;
         maskedWord = new char[secretWord.Length];
         Array.Fill(maskedWord, '_');
@@ -132,6 +132,4 @@
             counter++;
         }
     }
-
-
 }

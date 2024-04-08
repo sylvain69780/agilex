@@ -9,9 +9,12 @@
     }
     public class AppSettings
     {
-        public AgileValue[]? AgileValues { get; set; }
+        public GameConfiguration? GameConfiguration { get; set; }
+        public GameConfiguration? GameConfigurationDemo { get; set; }
     }
 
-    public class AppSettingsDemo : AppSettings;
-
+    public class GameConfiguration
+    {
+        public AgileValue[]? AgileValues { get; set; }
+    }
 }
