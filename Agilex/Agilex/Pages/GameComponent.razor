@@ -119,9 +119,11 @@
         var c = s.ToLower()[^1];
         if (c == 'é')
             c = 'e';
+        if (c == 'à')
+            c = 'a';
         var l = secretWord!.Length;
         var found = false;
-        var secret = secretWord.Replace('é', 'e');
+        var secret = secretWord.Replace('é', 'e').Replace('à', 'a');
         for (var i = 0; i < l; i++)
         {
             if (maskedWord![i] == '_' && c == secret[i])
