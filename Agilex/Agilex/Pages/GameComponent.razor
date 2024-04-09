@@ -90,6 +90,7 @@
         Array.Fill(maskedWord, '_');
         phraseBegin = config.Phrase!.Substring(0, config.Phrase.IndexOf(secretWord));
         phraseEnd = config.Phrase!.Substring(config.Phrase.IndexOf(secretWord) + secretWord.Length);
+        ModifyWord(" ");
     }
 
     protected override void OnInitialized()
@@ -114,6 +115,10 @@
     private void HandleInput(ChangeEventArgs e)
     {
         var s = (string?)e.Value;
+        ModifyWord(s);
+    }
+    private void ModifyWord(string s)
+    {
         if (string.IsNullOrEmpty(s))
             return;
         var c = s.ToLower()[^1];
