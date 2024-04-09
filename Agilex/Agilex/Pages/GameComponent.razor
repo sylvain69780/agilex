@@ -34,10 +34,6 @@
         }
         @if (counter > 9)
         {
-            <div class="end-game">
-                <h4>Fin de partie!</h4>
-             </div>
-
             <h4 class="resultatPerdu">
                 Perdu !
             </h4>
@@ -50,6 +46,10 @@
             }
             else
             {
+                <div class="end-game">
+                    <h4>Fin de partie!</h4>
+                </div>
+
                 <p>Vous avez terminé le jeu !</p>
                 <p>Vous avez fait <span style="color:#E35205;font-weight:bold;">@errors</span> erreur(s) pendant le jeu.</p>
                 <button class="btn btn-primary" @onclick="Restart">Rejouter</button>
